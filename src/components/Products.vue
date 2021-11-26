@@ -8,7 +8,11 @@
                 <template slot-scope="scope">
                     <div class="block">
                         <p class="title">{{ scope.row.name }}</p>
-                        <el-avatar shape="square" :size="100" fit="fill" :src="scope.row.cover"></el-avatar>
+                        <el-image 
+                        style="width: 100px; height: 100px"
+                        :src="scope.row.cover" 
+                        :preview-src-list="[scope.row.cover]">
+                        </el-image>
                     </div>
                 </template>
 			</el-table-column>
