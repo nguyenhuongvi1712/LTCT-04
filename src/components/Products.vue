@@ -1,17 +1,15 @@
 <template>
 	<div class="m-5">
         <!-- <el-header>Campaigns List</el-header> -->
-		<el-table :data="products.filter(data => !search || data.name.toLowerCase().includes(search.toLowerCase()) ||  data.id.toLowerCase().includes(search.toLowerCase()))" border style="width: 100%" height="1000">
+		<el-table :data="products.filter(data => !search || data.name.toLowerCase().includes(search.toLowerCase()) ||  data.id.toLowerCase().includes(search.toLowerCase()))" border style="width: 100%" height="800">
 			<el-table-column prop="id" label="Product Id" width="180">
 			</el-table-column>
 			<el-table-column prop="name" label="Name" width="180">
                 <template slot-scope="scope">
-                    <el-card :body-style="{ padding: '0px' }">
-                        <img :src="scope.row.cover" class="image" style="width: 100%;height: auto;">
-                        <div>
-                            <span>{{scope.row.name}}</span>
-                        </div>
-                    </el-card>
+                    <div class="block">
+                        <p class="title">{{ scope.row.name }}</p>
+                        <el-avatar shape="square" :size="100" fit="fill" :src="scope.row.cover"></el-avatar>
+                    </div>
                 </template>
 			</el-table-column>
 			<el-table-column prop="price" label="Price" sortable>
