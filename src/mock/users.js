@@ -1,29 +1,19 @@
 import faker from "faker";
 import { sample } from "lodash";
 // utils
-import { mockImgAvatar } from "../utils/mockImages";
 
 // ----------------------------------------------------------------------
 
-const users = [...Array(24)].map((_, index) => ({
+const customers = [...Array(24)].map((_, index) => ({
 	id: faker.datatype.uuid(),
-	avatarUrl: mockImgAvatar(index + 1),
+	avatarUrl: faker.image.avatar(),
+    username : faker.internet.userName(),
 	name: faker.name.findName(),
-	company: faker.company.companyName(),
-	isVerified: faker.datatype.boolean(),
 	status: sample(["active", "banned"]),
-	role: sample([
-		"Leader",
-		"Hr Manager",
-		"UI Designer",
-		"UX Designer",
-		"UI/UX Designer",
-		"Project Manager",
-		"Backend Developer",
-		"Full Stack Designer",
-		"Front End Developer",
-		"Full Stack Developer",
-	]),
+    gender : sample(["male","female"]),
+    email : faker.internet.email(),
+    phoneNumber : faker.phone.phoneNumber(),
+    address : faker.address.city()
 }));
 
-export default users;
+export default customers;
